@@ -3,34 +3,24 @@
 session_start();
 
 require_once __DIR__ . '../../Config/index.php';
+require_once __DIR__ . '../../Utils/index.php';
 
 use Teste\Models\Veiculo;
-use CoffeeCode\Router\Router;
-
-const viewCadastrar = __DIR__ . '../../views/Veiculos/Cadastrar.php';
-const viewDetalhar = __DIR__ . '../../views/Veiculos/Detalhar.php';
-const viewListagem = __DIR__ . '../../views/Veiculos/Listagem.php';
-
-function redirect($url, $message){
-    $_SESSION['message'] = $message;
-    header("Location: {$_ENV["BASE_URL"]}{$url}");
-    exit;
-}
 
 function listagemVeiculos(){
     $model = new Veiculo();
     $veiculos = $model->all();
-    include viewListagem;
+    return render('Listagem', $veiculos);
 }
 
 function detalharInformacoesVeiculo($params){
     $model = new Veiculo();
     $veiculo = $model->get($params['id']);
-    include viewDetalhar;
+    return  render('Detalhar', $veiculo);
 }
 
 function novoVeiculo(){
-    include viewCadastrar;
+    return render('Cadastrar');
 }
 
 function alterarInformacoesVeiculo($params){
@@ -39,15 +29,13 @@ function alterarInformacoesVeiculo($params){
     $data = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 
     if(empty($data['descricao_veiculo'])){
-        $_SESSION['message'] = 'Campo descrição do veiculo precisa ser preenchido!';
-        include viewDetalhar;
-        return;
+        $message = 'Campo descrição do veiculo precisa ser preenchido!';
+        return redirect("veiculo/detalhar/{$params['id']}", $message);
     }
 
     if(empty($data['placa_veiculo'])){
-        $_SESSION['message'] = 'Campo placa do veiculo precisa ser preenchido!';
-        include viewDetalhar;
-        return;
+        $message = 'Campo placa do veiculo precisa ser preenchido!';
+        return redirect("veiculo/detalhar/{$params['id']}", $message);
     }
 
     $veiculo = $model->findById($params['id']);
@@ -81,14 +69,12 @@ function cadastrarVeiculo(){
     
     if(empty($data['descricao_veiculo'])){
          $_SESSION['message']  = 'Campo descrição do veiculo precisa ser preenchido!';
-        include viewCadastrar;
-        return;
+        return render('Cadastrar');
     }
 
     if(empty($data['placa_veiculo'])){
         $_SESSION['message']  = 'Campo placa do veiculo precisa ser preenchido!';
-        include viewCadastrar;
-        return;
+        return render('Cadastrar');
     }
 
     $novoVeiculo = new Veiculo();

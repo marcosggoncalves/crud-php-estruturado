@@ -10,8 +10,8 @@
             <div class="container-botao">
                 <a href="<?=$_ENV["BASE_URL"]?>/veiculo/novo-cadastro">Novo Cadastro</a>
             </div>
-            <?php if(!empty($veiculos)):?>
-                <?php foreach ($veiculos as $veiculo): ?>
+            <?php if(!empty($content)):?>
+                <?php foreach ($content as $veiculo): ?>
                     <div class="container-veiculo">
                         <div class="container-img">
                             <img

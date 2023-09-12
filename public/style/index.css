@@ -1,0 +1,137 @@
+* {
+  padding: 0;
+  margin: 0;
+  font-family: 'arial';
+  outline: none;
+  text-decoration: none;
+}
+
+:root {
+  --header: #DBA901;
+  --white: #ffffff;
+  --black: #000000;
+  --fundo-body: #fefefe;
+}
+
+html {
+  background: var(--fundo-body);
+}
+
+.container {
+  width: 90%;
+  margin: auto;
+}
+
+header {
+  box-shadow: 1px 1px 1px 1px #dedede;
+  background: var(--header);
+  display: flex;
+  flex-direction: row;
+}
+
+header img {
+  width: 100px;
+}
+
+header .logo {
+  display: flex;
+  align-items: center;
+}
+
+header .logo h1 {
+  font-size: 1rem;
+  font-weight: inherit;
+  color: var(--black);
+}
+
+.listagem-veiculos {
+  margin-top: 10px;
+}
+
+.container-formulario h1,
+.listagem-veiculos h1 {
+  font-size: 1.5rem;
+  line-height: 4rem;
+}
+
+.container-veiculo {
+  display: flex;
+  align-items: center;
+}
+
+.container-veiculo ul {
+  list-style: none;
+  padding-left: 10px;
+}
+
+.container-veiculo img {
+  width: 60px;
+}
+
+.container-info{
+  margin-bottom: 20px;
+}
+
+.container-formulario input[type="submit"] {
+  width: 100px;
+  background: var(--header);
+  margin-top: 1rem;
+}
+
+.container-input {
+  display: flex;
+  flex-direction: column;
+  padding-right: 10px;
+  width: 500px;
+}
+
+.container-input-row {
+  display: flex;
+}
+
+label {
+  font-size: 0.8rem;
+  line-height: 2rem;
+}
+
+input {
+  border: 1px solid #dddddd;
+  padding: 0.5rem;
+}
+
+input:focus {
+  border: 1px solid var(--header);
+}
+
+.container-msg h1 {
+  font-size: 1rem;
+  line-height: 4rem;
+  color: var(--header);
+}
+
+.li-option{
+  margin-top: 10px;
+}
+
+ a{
+  color: var(--black);
+}
+
+.li-option .excluir{
+  color: red;
+}
+
+.li-option .editar{
+  color: var(--header);
+}
+
+.container-botao{
+ margin-bottom: 2rem;
+}
+
+.container-botao a{
+  background:var(--header);
+  padding: .6rem;
+  font-size: .8rem;
+  box-shadow: 1px 1px 1px 1px #dedede;
+}

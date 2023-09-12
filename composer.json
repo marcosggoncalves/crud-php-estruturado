@@ -1,0 +1,20 @@
+{
+    "name": "marcos/crudbasicophp",
+    "description": "Crud basico com php",
+    "autoload": {
+        "psr-4": {
+            "Teste\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Marcos Gonçalves",
+            "email": "marcoslopesg7@gmail.com"
+        }
+    ],
+    "require": {
+        "coffeecode/datalayer": "^2.0",
+        "coffeecode/router": "^2.0",
+        "vlucas/phpdotenv": "^5.5"
+    }
+}
